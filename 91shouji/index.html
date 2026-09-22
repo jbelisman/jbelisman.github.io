@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="91手机助手官方首页，提供安卓手机管理、软件下载、游戏安装、手机备份、系统升级及手机数据恢复等一站式服务，安全、稳定、高效。">
+    <meta name="keywords" content="91手机助手,安卓手机助手,手机管理软件,91助手下载,手机备份,手机刷机,应用下载">
+    <title>91手机助手-安卓手机管理、软件下载与手机备份工具</title>
+    <style>
+        :root {
+            --primary-color: #00a6e4;
+            --primary-hover: #008cc9;
+            --secondary-color: #f5f7fa;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --text-light: #999999;
+            --border-color: #e0e0e0;
+            --success-color: #28a745;
+            --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            --header-height: 64px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+            color: var(--text-main);
+            line-height: 1.6;
+            background-color: #fff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            height: var(--header-height);
+            background: #fff;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.03);
+        }
+
+        .header-inner {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 16px;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+
+        .btn-outline {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: rgba(0, 166, 228, 0.05);
+        }
+
+        .btn-primary {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            padding: 60px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            right: -50px;
+            width: 300px;
+            height: 300px;
+            background: rgba(0, 166, 228, 0.1);
+            border-radius: 50%;
+        }
+
+        .hero-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .hero-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            color: #1a202c;
+        }
+
+        .hero-text h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0, 166, 228, 0.2);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .feature-grid {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 12px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: #fff;
+            border: 1px solid var(--border-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--card-shadow);
+            border-color: var(--primary-color);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 166, 228, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary-color);
+            font-size: 24px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* App Categories */
+        .app-categories {
+            padding: 60px 0;
+            background: var(--secondary-color);
+        }
+
+        .category-grid {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+        }
+
+        .category-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .category-item:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+
+        .category-item:hover h4 {
+            color: #fff;
+        }
+
+        .category-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .category-item p {
+            font-size: 12px;
+            color: var(--text-light);
+        }
+
+        .category-item:hover p {
+            color: rgba(255,255,255,0.8);
+        }
+
+        /* Popular Apps Section */
+        .popular-apps {
+            padding: 60px 0;
+            background: #fff;
+        }
+
+        .app-list-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .app-list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 15px;
+        }
+
+        .app-list-header h2 {
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .app-list-header h2::before {
+            content: '';
+            display: block;
+            width: 6px;
+            height: 24px;
+            background: var(--primary-color);
+            border-radius: 2px;
+        }
+
+        .app-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .app-item {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .app-item:hover {
+            background: var(--secondary-color);
+        }
+
+        .app-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            background: #eee;
+            flex-shrink: 0;
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .app-info {
+            flex: 1;
+        }
+
+        .app-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 4px;
+            color: var(--text-main);
+        }
+
+        .app-meta {
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .app-meta span {
+            margin-right: 10px;
+        }
+
+        .app-download-btn {
+            padding: 8px 24px;
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .app-download-btn:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Safe Download Banner */
+        .safe-banner {
+            background: #fff8f0;
+            border: 1px solid #ffe4c4;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 40px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .safe-icon {
+            color: var(--success-color);
+            font-size: 24px;
+        }
+
+        .safe-text h4 {
+            font-size: 16px;
+            margin-bottom: 4px;
+        }
+
+        .safe-text p {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+            background: var(--secondary-color);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .faq-item {
+            background: #fff;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-main);
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 20px;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding-bottom: 20px;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a202c;
+            color: #cbd5e0;
+            padding: 60px 0 20px;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: #fff;
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            font-size: 14px;
+            line-height: 1.8;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            font-size: 14px;
+            color: #cbd5e0;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+            border-top: 1px solid #2d3748;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+            color: #718096;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                padding: 0 15px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-container {
+                flex-direction: column-reverse;
+                text-align: center;
+            }
+
+            .hero-text {
+                margin-top: 30px;
+            }
+
+            .hero-text h1 {
+                font-size: 32px;
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .category-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .app-item {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .app-meta {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="24" height="24" rx="6" fill="#00a6e4"/>
+                    <path d="M7 12L10 15L17 8" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                91手机助手<span>官网</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#" class="active">首页</a>
+                <a href="#">软件下载</a>
+                <a href="#">游戏中心</a>
+                <a href="#">手机工具</a>
+                <a href="#">帮助中心</a>
+            </nav>
+            <div class="header-actions">
+                <a href="#" class="btn btn-outline">登录</a>
+                <a href="#" class="btn btn-primary">立即下载</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <h1>让手机管理更简单，<br><span>安全下载每一款应用</span></h1>
+                    <p>91手机助手为您提供专业的安卓手机管理服务，支持一键安装、数据备份、病毒查杀及系统清理，助您畅享纯净数字生活。</p>
+                    <div class="hero-buttons">
+                        <a href="#" class="btn btn-primary">Windows下载</a>
+                        <a href="#" class="btn btn-outline">Mac下载</a>
+                    </div>
+                    <div style="margin-top: 20px; font-size: 13px; color: #666;">
+                        <span style="margin-right: 15px;">● 100% 安全无毒</span>
+                        <span>● 每日更新百万应用</span>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://picsum.photos/seed/phoneui/500/350" alt="91手机助手软件界面示意图">
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features">
+            <div class="section-header">
+                <h2>核心功能</h2>
+                <p>全方位满足您的手机管理需求</p>
+            </div>
+            <div class="feature-grid">
+                <article class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>一键安装</h3>
+                    <p>告别繁琐操作，USB连接后一键安装或卸载应用，节省您宝贵的时间。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>安全扫描</h3>
+                    <p>内置专业查杀引擎，实时检测手机中的病毒、恶意插件及隐私泄露风险。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">💾</div>
+                    <h3>数据备份</h3>
+                    <p>短信、联系人、照片、视频一键备份至电脑，防止误删数据造成不可挽回的损失。</p>
+                </article>
+                <article class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>系统优化</h3>
+                    <p>智能清理垃圾文件，释放存储空间，优化手机运行速度，让设备时刻保持流畅。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- App Categories -->
+        <section class="app-categories">
+            <div class="section-header">
+                <h2>热门分类</h2>
+                <p>海量资源，总有一款适合您</p>
+            </div>
+            <div class="category-grid">
+                <div class="category-item">
+                    <h4>社交聊天</h4>
+                    <p>微信/QQ/微博</p>
+                </div>
+                <div class="category-item">
+                    <h4>影音娱乐</h4>
+                    <p>视频/音乐/直播</p>
+                </div>
+                <div class="category-item">
+                    <h4>效率办公</h4>
+                    <p>文档/日历/笔记</p>
+                </div>
+                <div class="category-item">
+                    <h4>游戏中心</h4>
+                    <p>手游/单机/模拟器</p>
+                </div>
+                <div class="category-item">
+                    <h4>生活工具</h4>
+                    <p>地图/天气/翻译</p>
+                </div>
+                <div class="category-item">
+                    <h4>系统工具</h4>
+                    <p>刷机/ROOT/美化</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Apps -->
+        <section class="popular-apps">
+            <div class="app-list-container">
+                <div class="app-list-header">
+                    <h2>本周热门推荐</h2>
+                    <a href="#" style="color: var(--primary-color); font-size: 14px;">查看更多 &gt;</a>
+                </div>
+                <div class="app-list">
+                    <div class="app-item">
+                        <div class="app-icon">💬</div>
+                        <div class="app-info">
+                            <div class="app-title">微信</div>
+                            <div class="app-meta">
+                                <span>社交</span>
+                                <span>8.0.45</span>
+                                <span>大小：220MB</span>
+                            </div>
+                        </div>
+                        <a href="#" class="app-download-btn">立即下载</a>
+                    </div>
+                    <div class="app-item">
+                        <div class="app-icon">🎮</div>
+                        <div class="app-info">
+                            <div class="app-title">原神</div>
+                            <div class="app-meta">
+                                <span>角色扮演</span>
+                                <span>4.7.0</span>
+                                <span>大小：3.2GB</span>
+                            </div>
+                        </div>
+                        <a href="#" class="app-download-btn">立即下载</a>
+                    </div>
+                    <div class="app-item">
+                        <div class="app-icon">📺</div>
+                        <div class="app-info">
+                            <div class="app-title">抖音短视频</div>
+                            <div class="app-meta">
+                                <span>娱乐</span>
+                                <span>26.0.0</span>
+                                <span>大小：180MB</span>
+                            </div>
+                        </div>
+                        <a href="#" class="app-download-btn">立即下载</a>
+                    </div>
+                    <div class="app-item">
+                        <div class="app-icon">🛒</div>
+                        <div class="app-info">
+                            <div class="app-title">淘宝</div>
+                            <div class="app-meta">
+                                <span>购物</span>
+                                <span>10.8.0</span>
+                                <span>大小：150MB</span>
+                            </div>
+                        </div>
+                        <a href="#" class="app-download-btn">立即下载</a>
+                    </div>
+                </div>
+
+                <div class="safe-banner">
+                    <div class="safe-icon">✓</div>
+                    <div class="safe-text">
+                        <h4>官方安全下载保障</h4>
+                        <p>所有上架软件均经过人工审核与病毒扫描，确保无捆绑、无广告插件，请放心安装。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+            <div class="section-header">
+                <h2>常见问题</h2>
+                <p>使用过程中的疑难解答</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item active">
+                    <div class="faq-question">91手机助手支持哪些手机型号？</div>
+                    <div class="faq-answer">
+                        91手机助手支持市面上绝大多数安卓手机品牌，包括华为、小米、OPPO、vivo、三星、魅族等。具体兼容性请参考下载页面的机型列表。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何通过91手机助手备份手机数据？</div>
+                    <div class="faq-answer">
+                        连接手机后，打开91手机助手，点击“我的手机”标签页，选择“备份与恢复”功能，勾选需要备份的联系人、短信或图片，点击开始备份即可。
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">下载的软件是官方原版吗？</div>
+                    <div class="faq-answer">
+                        是的，我们提供的是各大应用开发商发布的官方正版安装包，确保软件功能完整且无恶意代码。
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>91手机助手</h3>
+                <p>致力于为用户提供最安全、最便捷的手机管理工具。让科技服务于生活，让管理变得简单。</p>
+            </div>
+            <div class="footer-col">
+                <h4>产品服务</h4>
+                <ul>
+                    <li><a href="#">软件下载</a></li>
+                    <li><a href="#">游戏中心</a></li>
+                    <li><a href="#">手机工具箱</a></li>
+                    <li><a href="#">版本更新</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助支持</h4>
+                <ul>
+                    <li><a href="#">下载安装教程</a></li>
+                    <li><a href="#">常见问题解答</a></li>
+                    <li><a href="#">意见反馈</a></li>
+                    <li><a href="#">联系客服</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>关于我们</h4>
+                <ul>
+                    <li><a href="#">公司简介</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                    <li><a href="#">服务条款</a></li>
+                    <li><a href="#">加入我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 91手机助手 版权所有 | 京ICP备XXXXXXXX号</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <script>
+        // Simple FAQ Toggle Logic
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', () => {
+                const parent = item.parentElement;
+                const wasActive = parent.classList.contains('active');
+                
+                // Close all
+                document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('active'));
+                
+                // Open clicked if it wasn't open
+                if (!wasActive) {
+                    parent.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+                  </html>
