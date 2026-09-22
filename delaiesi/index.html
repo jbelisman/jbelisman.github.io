@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="德莱厄斯是英雄联盟中诺克萨斯的核心力量与统治者，以其无情的战斗风格、断头台技能和恐怖的爆发伤害著称。本站提供德莱厄斯背景故事、技能解析、出装推荐、符文搭配及实战教学。">
+    <meta name="keywords" content="德莱厄斯,英雄联盟,诺克萨斯,德莱厄斯攻略,德莱厄斯出装,诺克萨斯之手">
+    <title>德莱厄斯-英雄联盟诺克萨斯之手技能解析与实战出装指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #5d1a1a; /* 诺克萨斯红 */
+            --primary-dark: #3d0f0f;
+            --accent-color: #d4af37; /* 金色装饰 */
+            --text-main: #1a1a1a;
+            --text-light: #666666;
+            --bg-body: #f8f8f8;
+            --bg-card: #ffffff;
+            --border-radius: 8px;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--bg-card);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+            font-weight: normal;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 600;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -24px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary-color);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><g fill="%23ffffff" fill-opacity="0.05"><path d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/></g></g></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: var(--primary-dark);
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 16px;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            background-color: #f9d76e;
+        }
+
+        /* 技能介绍区 */
+        .skills-section {
+            padding: 60px 0;
+            background-color: var(--bg-body);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 32px;
+            color: var(--text-main);
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+        }
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background: var(--bg-card);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            transition: transform 0.3s;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .skill-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .skill-desc {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        /* 核心玩法区 */
+        .gameplay-section {
+            padding: 60px 0;
+            background-color: white;
+        }
+
+        .gameplay-container {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .gameplay-content {
+            flex: 1;
+        }
+
+        .gameplay-sidebar {
+            flex: 1;
+            background-color: #fff8f8;
+            padding: 30px;
+            border-radius: var(--border-radius);
+            border: 1px solid #f0d0d0;
+        }
+
+        .guide-step {
+            margin-bottom: 30px;
+        }
+
+        .guide-step h4 {
+            font-size: 18px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+
+        .guide-step h4::before {
+            content: attr(data-step);
+            background-color: var(--primary-color);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .guide-step p {
+            color: var(--text-light);
+            font-size: 15px;
+        }
+
+        .build-item {
+            margin-bottom: 20px;
+        }
+
+        .build-item h4 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .item-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            color: var(--text-light);
+            font-size: 14px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* 数据统计 */
+        .stats-section {
+            padding: 60px 0;
+            background-color: var(--primary-dark);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .stat-item h3 {
+            font-size: 40px;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-item p {
+            font-size: 16px;
+            opacity: 0.8;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #111;
+            color: #888;
+            padding: 40px 0;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 32px;
+            }
+            
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 14px;
+            }
+
+            .gameplay-container {
+                flex-direction: column;
+            }
+
+            .stats-grid {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">德莱厄斯 <span>指南</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#skills">技能解析</a></li>
+                    <li><a href="#build">出装符文</a></li>
+                    <li><a href="#guide">实战教学</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1>诺克萨斯之手 · 德莱厄斯</h1>
+                <p>以血还血，以牙还牙。他是诺克萨斯帝国的利刃，也是战场上最令人闻风丧胆的统治者。</p>
+                <a href="#guide" class="cta-button">掌握断头台 · 开始学习</a>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>核心技能机制</h2>
+                    <p>理解技能循环与伤害加成是玩好德莱厄斯的关键</p>
+                </div>
+                <div class="skill-grid">
+                    <article class="skill-card">
+                        <div class="skill-icon">Q</div>
+                        <h3>无情铁手 <span>(被动)</span></h3>
+                        <p class="skill-desc">德莱厄斯的普通攻击会对敌人造成额外物理伤害。每次施放技能后，下一次普通攻击会大幅增加攻击距离并造成额外伤害。</p>
+                    </article>
+                    <article class="skill-card">
+                        <div class="skill-icon">W</div>
+                        <h3>大杀四方 <span>(Q)</span></h3>
+                        <p class="skill-desc">德莱厄斯猛击四周，对周围敌人造成物理伤害。该技能会造成减速效果，且如果目标生命值百分比低于德莱厄斯，则造成更多伤害。</p>
+                    </article>
+                    <article class="skill-card">
+                        <div class="skill-icon">E</div>
+                        <h3>放逐之刃 <span>(W)</span></h3>
+                        <p class="skill-desc">德莱厄斯向目标敌人投掷巨剑，造成物理伤害并降低其护甲。如果目标已被减速或被定身，则该技能会立即返还法力值。</p>
+                    </article>
+                    <article class="skill-card">
+                        <div class="skill-icon">R</div>
+                        <h3>诺克萨斯断头台 <span>(E)</span></h3>
+                        <p class="skill-desc">德莱厄斯锁定一个目标，对其造成高额物理伤害。如果该目标生命值低于德莱厄斯，则该技能可再次施放。每次施放都会提升伤害。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gameplay & Build Section -->
+        <section id="build" class="gameplay-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>符文与出装推荐</h2>
+                    <p>高爆发、高续航、强控制，打造完美的诺克萨斯主宰</p>
+                </div>
+                <div class="gameplay-container">
+                    <div class="gameplay-content">
+                        <div class="guide-step" data-step="1">
+                            <h4>符文选择</h4>
+                            <p><strong>主系：征服者</strong>：提供持续作战能力，配合德莱厄斯的技能连招可以快速叠满层数，大幅提升爆发伤害。</p>
+                            <p style="margin-top:10px;"><strong>副系：坚决</strong>：选择“复苏之风”和“过度生长”，增强对线期的生存能力和血量上限。</p>
+                        </div>
+                        <div class="guide-step" data-step="2">
+                            <h4>技能加点</h4>
+                            <p>主加 <strong>Q（大杀四方）</strong>：作为主要输出手段，清兵和消耗的核心。副加 <strong>E（放逐之刃）</strong>：提供控制手段和回复法力值。</p>
+                        </div>
+                        <div class="guide-step" data-step="3">
+                            <h4>对线思路</h4>
+                            <p>利用 <strong>E技能</strong> 远程消耗，配合 <strong>Q技能</strong> 收割残血小兵叠被动。在六级拥有大招后，寻找机会配合队友开启团战，集火敌方脆皮英雄。</p>
+                        </div>
+                    </div>
+                    <aside class="gameplay-sidebar">
+                        <div class="build-item">
+                            <h4>推荐出装</h4>
+                            <ul class="item-list">
+                                <li><span>贪欲九头蛇</span> <span>续航/清线</span></li>
+                                <li><span>斯特拉克的挑战护手</span> <span>保命/反伤</span></li>
+                                <li><span>三相之力</span> <span>爆发/攻速</span></li>
+                                <li><span>死亡之舞</span> <span>减伤/吸血</span></li>
+                                <li><span>守护天使</span> <span>复活/防御</span></li>
+                                <li><span>斯特拉克的挑战护手</span> <span>保命/反伤</span></li>
+                            </ul>
+                        </div>
+                        <div class="build-item" style="margin-top:30px;">
+                            <h4>召唤师技能</h4>
+                            <ul class="item-list">
+                                <li><span>闪现</span> <span>位移/追击</span></li>
+                                <li><span>点燃</span> <span>斩杀/爆发</span></li>
+                            </ul>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <h3>高</h3>
+                        <p>爆发伤害</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>强</h3>
+                        <p>团战控制</p>
+                    </div>
+                    <div class="stat-item">
+                        <h3>稳</h3>
+                        <p>对线压制</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 德莱厄斯攻略中心. 仅供学习交流使用.</p>
+            <p>本站内容基于游戏《英雄联盟》资料整理，与 Riot Games 无直接关联。</p>
+        </div>
+    </footer>
+
+</body>
+</html>
