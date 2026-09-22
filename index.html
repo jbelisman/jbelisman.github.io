@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="姚易对决-中国篮球史上最具影响力的经典赛事回顾与深度解析。包含姚明与易建联职业生涯数据对比、巅峰对决时刻、技术特点分析及球迷经典记忆。">
+    <meta name="keywords" content="姚易对决,姚明,易建联,中国篮球,NBA,姚易大战,篮球历史">
+    <title>姚易对决-中国篮球巅峰时刻与经典赛事回顾</title>
+    <style>
+        :root {
+            --primary-color: #004e92;
+            --secondary-color: #000428;
+            --accent-color: #ff6b6b;
+            --text-color: #333;
+            --light-text: #f0f0f0;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: var(--light-text);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 78, 146, 0.8), rgba(0, 4, 40, 0.8)), url('https://picsum.photos/seed/basketball/1920/600.jpg') center/cover no-repeat;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--accent-color);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: transform 0.2s, background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #ff5252;
+            transform: translateY(-2px);
+        }
+
+        /* Stats Overview */
+        .stats-section {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-card {
+            padding: 20px;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            transition: box-shadow 0.3s;
+        }
+
+        .stat-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* Content Layout */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: var(--secondary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        /* Articles List */
+        .article-list article {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            transition: transform 0.3s;
+        }
+
+        .article-list article:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .article-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .article-body {
+            padding: 20px;
+        }
+
+        .article-meta {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .article-title {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+
+        .article-excerpt {
+            color: #555;
+            margin-bottom: 15px;
+        }
+
+        /* Sidebar */
+        aside .widget {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .widget-title {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #f0f0f0;
+            color: var(--primary-color);
+        }
+
+        .player-card {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .player-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 15px;
+            border: 2px solid var(--primary-color);
+        }
+
+        .player-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 4px;
+        }
+
+        .player-info p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+
+        .comparison-table th, .comparison-table td {
+            text-align: left;
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .comparison-table th {
+            color: #888;
+            font-weight: 500;
+        }
+
+        .comparison-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            border-left: 2px solid #ddd;
+            margin-top: 20px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 25px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -26px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent-color);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: #888;
+            margin-bottom: 4px;
+        }
+
+        .timeline-content {
+            font-size: 1rem;
+            color: #333;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #aaa;
+            padding: 60px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+            
+            .header-inner {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-inner">
+        <div class="logo">姚易<span>对决</span></div>
+        <nav>
+            <ul>
+                <li><a href="#">首页</a></li>
+                <li><a href="#history">历史回顾</a></li>
+                <li><a href="#comparison">数据对比</a></li>
+                <li><a href="#memories">经典时刻</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>中国篮球的巅峰对话</h1>
+            <p>重温姚明与易建联在NBA赛场上的激烈碰撞，见证两位超级中锋如何定义了一个时代的篮球高度。</p>
+            <a href="#comparison" class="btn">查看详细数据</a>
+        </div>
+    </section>
+
+    <!-- Stats Overview -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">NBA交手次数</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">98.5%</div>
+                    <div class="stat-label">球迷关注度</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">12年</div>
+                    <div class="stat-label">职业生涯交集</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">8.2</div>
+                    <div class="stat-label">场均得分对比</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container main-content">
+        <div class="content-grid">
+            <!-- Main Content Area -->
+            <div class="articles">
+                <h2 class="section-title">经典战役回顾</h2>
+                
+                <article>
+                    <img src="https://picsum.photos/seed/yao/800/400.jpg" alt="姚明在比赛中" class="article-img">
+                    <div class="article-body">
+                        <div class="article-meta">
+                            <span>2023-10-24</span>
+                            <span>深度解析</span>
+                        </div>
+                        <h3 class="article-title">姚明与易建联的战术博弈：风格差异与时代烙印</h3>
+                        <p class="article-excerpt">回顾两人职业生涯中的几次正面交锋，分析姚明的低位技术与易建联的空间型打法在当时的战术体系下的不同表现...</p>
+                        <a href="#" style="color: var(--primary-color); font-weight: 600;">阅读全文 &rarr;</a>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="https://picsum.photos/seed/yi/800/400.jpg" alt="易建联在比赛中" class="article-img">
+                    <div class="article-body">
+                        <div class="article-meta">
+                            <span>2023-10-22</span>
+                            <span>球员档案</span>
+                        </div>
+                        <h3 class="article-title">从洛杉矶到上海：易建联如何接过前辈的大旗</h3>
+                        <p class="article-excerpt">易建联在NBA的岁月里，多次与姚明所在的球队交手。本文将探讨易建联如何在巨人的阴影下寻找属于自己的生存空间...</p>
+                        <a href="#" style="color: var(--primary-color); font-weight: 600;">阅读全文 &rarr;</a>
+                    </div>
+                </article>
+
+                <article>
+                    <img src="https://picsum.photos/seed/basketball2/800/400.jpg" alt="NBA赛场全景" class="article-img">
+                    <div class="article-body">
+                        <div class="article-meta">
+                            <span>2023-10-20</span>
+                            <span>球迷回忆</span>
+                        </div>
+                        <h3 class="article-title">那些年我们追过的“姚易大战”</h3>
+                        <p class="article-excerpt">整理了两人职业生涯中6次直接对话的数据统计，以及球迷社区中关于这两位中国篮球旗帜性人物的精彩讨论...</p>
+                        <a href="#" style="color: var(--primary-color); font-weight: 600;">阅读全文 &rarr;</a>
+                    </div>
+                </article>
+            </div>
+
+            <!-- Sidebar -->
+            <aside>
+                <div class="widget">
+                    <h3 class="widget-title">核心球员数据对比</h3>
+                    <table class="comparison-table">
+                        <tr>
+                            <th>项目</th>
+                            <th>姚明</th>
+                            <th>易建联</th>
+                        </tr>
+                        <tr>
+                            <td>身高</td>
+                            <td>226cm</td>
+                            <td>211cm</td>
+                        </tr>
+                        <tr>
+                            <td>位置</td>
+                            <td>中锋</td>
+                            <td>大前锋/中锋</td>
+                        </tr>
+                        <tr>
+                            <td>巅峰球队</td>
+                            <td>休斯顿火箭</td>
+                            <td>密尔沃基雄鹿/华盛顿奇才</td>
+                        </tr>
+                        <tr>
+                            <td>入选全明星</td>
+                            <td>8次</td>
+                            <td>6次</td>
+                        </tr>
+                        <tr>
+                            <td>国家队队长</td>
+                            <td>是</td>
+                            <td>是</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <div class="widget">
+                    <h3 class="widget-title">职业生涯交集时间线</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-date">2007-2008赛季</div>
+                            <div class="timeline-content">姚明带领火箭队，易建联初入NBA，两人首次在西部决赛相遇。</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2011年</div>
+                            <div class="timeline-content">姚明宣布退役，易建联成为国家队绝对核心。</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2012年-2016年</div>
+                            <div class="timeline-content">易建联在CBA与CBA球队交手，两人多次在总决赛舞台上演“姚易对决”。</div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">2017年</div>
+                            <div class="timeline-content">姚明当选中国篮协主席，易建联继续在国家队征战。</div>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <section style="background-color: white; padding: 60px 0;">
+        <div class="container">
+            <h2 class="section-title">常见问题 (FAQ)</h2>
+            <div style="max-width: 800px; margin: 0 auto;">
+                <details style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                    <summary style="font-weight: 600; cursor: pointer; font-size: 1.1rem;">姚明和易建联在NBA正式交手过几次？</summary>
+                    <p style="margin-top: 10px; color: #555;">根据官方统计，姚明和易建联在NBA常规赛中正式交手了6次。姚明所在的火箭队取得了4胜2负的战绩。</p>
+                </details>
+                <details style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                    <summary style="font-weight: 600; cursor: pointer; font-size: 1.1rem;">为什么姚明和易建联的“对决”具有特殊意义？</summary>
+                    <p style="margin-top: 10px; color: #555;">作为中国篮球历史上身高最高的两位内线球员，他们代表了不同时代的篮球风格。姚明是传统中锋的巅峰，易建联则是空间型大前锋的代表，两人的职业生涯轨迹见证了中国篮球的崛起与转型。</p>
+                </details>
+                <details style="margin-bottom: 15px; border-bottom: 1px solid #eee; padding-bottom: 15px;">
+                    <summary style="font-weight: 600; cursor: pointer; font-size: 1.1rem;">易建联在NBA时期如何评价姚明？</summary>
+                    <p style="margin-top: 10px; color: #555;">易建联曾多次公开表示姚明是他在NBA学习的榜样，认为姚明的篮球智商和职业态度是后辈学习的典范。</p>
+                </details>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <h3>关于姚易对决</h3>
+                <p>本站致力于记录和分享中国篮球历史上最经典的“姚易对决”相关资料，为球迷提供一个回顾历史、分析数据的平台。</p>
+            </div>
+            <div class="footer-col">
+                <h3>快速链接</h3>
+                <ul>
+                    <li><a href="#">姚明生涯数据</a></li>
+                    <li><a href="#">易建联生涯数据</a></li>
+                    <li><a href="#">NBA历史数据</a></li>
+                    <li><a href="#">CBA总决赛回顾</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>联系我们</h3>
+                <ul>
+                    <li><a href="#">投稿建议</a></li>
+                    <li><a href="#">版权声明</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 姚易对决纪念网. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</body>
+                          </html>
