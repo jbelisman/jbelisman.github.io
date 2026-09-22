@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星际争霸秘籍 - 经典战役攻略与作弊代码大全</title>
+    <meta name="description" content="本站提供《星际争霸》系列（包括《母巢之战》、《母巢之战高清重制版》及《星际争霸2》）的经典秘籍代码、战役攻略、种族克制关系及战术分析。收录游戏内输入指令，帮助玩家快速通关挑战或体验特殊玩法。">
+    <meta name="keywords" content="星际争霸秘籍,星际争霸作弊码,星际争霸1秘籍,星际争霸2秘籍,星际争霸攻略,SC1攻略,SC2攻略">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #00bfff;
+            --secondary-color: #1a1a1a;
+            --accent-color: #ff4500;
+            --bg-dark: #0d0d0d;
+            --bg-card: #161616;
+            --text-main: #e0e0e0;
+            --text-muted: #a0a0a0;
+            --border-color: #333;
+            --font-stack: 'Segoe UI', 'Microsoft YaHei', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 24px;
+            background-color: var(--primary-color);
+            color: #000;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            border: none;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: #009acd;
+            transform: translateY(-2px);
+        }
+
+        .section-title {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            color: #fff;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(13, 13, 13, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 15px 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 25px;
+        }
+
+        nav a {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://picsum.photos/seed/sc1art/1920/1080.jpg') center/cover no-repeat;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at center, transparent 0%, var(--bg-dark) 90%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 20px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #ccc;
+            margin-bottom: 30px;
+        }
+
+        /* Code Input Section */
+        .code-input-section {
+            background-color: var(--bg-card);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .input-group {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid var(--border-color);
+            background-color: #000;
+            color: var(--primary-color);
+            font-family: 'Courier New', monospace;
+            font-size: 1.1rem;
+            min-width: 300px;
+        }
+
+        input[type="text"]:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        /* Main Content Grid */
+        .main-content {
+            padding: 60px 0;
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .grid-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            nav ul {
+                display: none; /* Simplified for mobile */
+            }
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: transform 0.2s;
+        }
+
+        .card:hover {
+            border-color: var(--primary-color);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            border-bottom: 1px solid #222;
+            padding-bottom: 10px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        .tag {
+            font-size: 0.8rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            background-color: #222;
+            color: var(--text-muted);
+        }
+
+        .tag.sc1 { color: #ff9900; background: rgba(255, 153, 0, 0.1); }
+        .tag.sc2 { color: #00bfff; background: rgba(0, 191, 255, 0.1); }
+
+        .code-block {
+            background-color: #000;
+            padding: 15px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #00ff00;
+            margin-bottom: 10px;
+            border-left: 3px solid var(--accent-color);
+            position: relative;
+        }
+
+        .code-block::before {
+            content: '输入指令:';
+            position: absolute;
+            top: -20px;
+            left: 0;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-family: var(--font-stack);
+        }
+
+        .code-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Sidebar */
+        .sidebar-section {
+            background-color: var(--bg-card);
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .sidebar-title {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .category-list li {
+            margin-bottom: 10px;
+        }
+
+        .category-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-muted);
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .category-list a:hover {
+            background-color: #222;
+            color: #fff;
+        }
+
+        .category-list a span.count {
+            background-color: #333;
+            padding: 2px 6px;
+            border-radius: 10px;
+            font-size: 0.8rem;
+        }
+
+        /* Guide List */
+        .guide-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #222;
+        }
+
+        .guide-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .guide-thumb {
+            width: 120px;
+            height: 80px;
+            background-color: #222;
+            border-radius: 4px;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+
+        .guide-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        .guide-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #fff;
+        }
+
+        .guide-info p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            padding: 50px 0 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: #fff;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #111;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--primary-color);
+            color: #000;
+            padding: 15px 25px;
+            border-radius: 4px;
+            font-weight: bold;
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 2000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+        }
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <div class="logo">StarCraft<span>Guide</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#sc1-codes">星际争霸1</a></li>
+                    <li><a href="#sc2-codes">星际争霸2</a></li>
+                    <li><a href="#guides">战役攻略</a></li>
+                    <li><a href="#community">社区讨论</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>重温经典：<span>星际争霸</span>秘籍与全攻略</h1>
+            <p>无论你是想快速通关经典战役，还是在自定义地图中挑战极限，这里收录了最全的游戏秘籍代码、种族克制技巧及战术分析。</p>
+            <a href="#sc1-codes" class="btn">查看作弊代码</a>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Search & Input -->
+        <div class="code-input-section">
+            <div class="input-group">
+                <input type="text" id="codeInput" placeholder="在此输入秘籍代码 (例如: operationcwal)" autocomplete="off">
+                <button class="btn" onclick="copyCode()">复制代码</button>
+            </div>
+            <p style="margin-top: 15px; color: #666; font-size: 0.9rem;">提示：按 Enter 键快速复制，代码适用于原版及高清重制版。</p>
+        </div>
+    </div>
+
+    <main class="container main-content">
+        <div class="grid-layout">
+            
+            <!-- Left Column: Content -->
+            <div class="content-col">
+                
+                <!-- SC1 Section -->
+                <section id="sc1-codes">
+                    <h2 class="section-title">《星际争霸1》秘籍</h2>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">资源与建造</span>
+                            <span class="tag sc1">SC1</span>
+                        </div>
+                        <div class="code-block">poweroverwhelming</div>
+                        <p class="code-desc">所有单位造价为0，建造速度极快。</p>
+                        <div class="code-block">operationcwal</div>
+                        <p class="code-desc">建造速度提升300%。</p>
+                        <div class="code-block">showme the money</div>
+                        <p class="code-desc">增加1000单位矿物和气体。</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">单位与升级</span>
+                            <span class="tag sc1">SC1</span>
+                        </div>
+                        <div class="code-block">black sheep wall</div>
+                        <p class="code-desc">开启全图迷雾，显示所有地形。</p>
+                        <div class="code-block">medieval times</div>
+                        <p class="code-desc">所有科技树升级完毕。</p>
+                        <div class="code-block">power overwhelming</div>
+                        <p class="code-desc">所有单位无敌且攻击力提升。</p>
+                    </div>
+                </section>
+
+                <!-- SC2 Section -->
+                <section id="sc2-codes">
+                    <h2 class="section-title">《星际争霸2》秘籍</h2>
+                    <div class="card">
+                        <div class="card-header">
+                            <span class="card-title">单人模式/挑战</span>
+                            <span class="tag sc2">SC2</span>
+                        </div>
+                        <div class="code-block">operationcwal</div>
+                        <p class="code-desc">建造速度提升。</p>
+                        <div class="code-block">show me the money</div>
+                        <p class="code-desc">增加5000矿物和气矿。</p>
+                        <div class="code-block">black sheep wall</div>
+                        <p class="code-desc">开启迷雾。</p>
+                        <div class="code-block">medieval times</div>
+                        <p class="code-desc">所有科技升级完毕。</p>
+                        <div class="code-block">i love the smell of napalm in the morning</div>
+                        <p class="code-desc">所有单位攻击力提升（此处为SC2著名代码）。</p>
+                    </div>
+                </section>
+
+                <!-- Guides Section -->
+                <section id="guides">
+                    <h2 class="section-title">热门战役与战术指南</h2>
+                    
+                    <article class="guide-item">
+                        <div class="guide-thumb">
+                            <img src="https://picsum.photos/seed/terran/200/150" alt="人族攻略">
+                        </div>
+                        <div class="guide-info">
+                            <h3>《母巢之战》：人类战役全流程解析</h3>
+                            <p>详细介绍人族三场战役的关键节点、兵种搭配以及如何利用建筑学技巧快速通关。</p>
+                        </div>
+                    </article>
+
+                    <article class="guide-item">
+                        <div class="guide-thumb">
+                            <img src="https://picsum.photos/seed/zerg/200/150" alt="虫族攻略">
+                        </div>
+                        <div class="guide-info">
+                            <h3>虫族暴兵流战术详解</h3>
+                            <p>解析虫族如何通过速升二本和暴兵机制压制对手，配合秘籍代码进行速推测试。</p>
+                        </div>
+                    </article>
+
+                    <article class="guide-item">
+                        <div class="guide-thumb">
+                            <img src="https://picsum.photos/seed/protoss/200/150" alt="神族攻略">
+                        </div>
+                        <div class="guide-info">
+                            <h3>神族后期运营与科技点</h3>
+                            <p>探讨神族在资源紧张情况下的科技选择，以及如何利用高阶兵种翻盘。</p>
+                        </div>
+                    </article>
+
+                </section>
+
+            </div>
+
+            <!-- Right Column: Sidebar -->
+            <aside class="sidebar-col">
+                
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">分类导航</h3>
+                    <ul class="category-list">
+                        <li><a href="#"><span>星际争霸1秘籍</span> <span class="count">24</span></a></li>
+                        <li><a href="#"><span>星际争霸2秘籍</span> <span class="count">18</span></a></li>
+                        <li><a href="#"><span>战役通关攻略</span> <span class="count">12</span></a></li>
+                        <li><a href="#"><span>地图编辑器教程</span> <span class="count">8</span></a></li>
+                        <li><a href="#"><span>重制版优化设置</span> <span class="count">5</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-section">
+                    <h3 class="sidebar-title">常见问题 (FAQ)</h3>
+                    <div class="guide-item" style="flex-direction: column; align-items: flex-start; border:none; padding:0;">
+                        <h4 style="font-size: 0.95rem; color: #fff; margin-bottom: 5px;">秘籍在重制版中有效吗？</h4>
+                        <p style="font-size: 0.85rem; color: #888;">是的，所有原版1.16.1版本的秘籍代码在《星际争霸：重制版》中均完全兼容。</p>
+                    </div>
+                    <div class="guide-item" style="flex-direction: column; align-items: flex-start; border:none; padding:0;">
+                        <h4 style="font-size: 0.95rem; color: #fff; margin-bottom: 5px;">输入后没有反应怎么办？</h4>
+                        <p style="font-size: 0.85rem; color: #888;">请确保输入法已切换为英文状态，且输入时没有多余的空格。按回车键生效。</p>
+                    </div>
+                </div>
+
+                <div class="sidebar-section" style="text-align: center;">
+                    <h3 class="sidebar-title">关注我们</h3>
+                    <p style="color: #888; font-size: 0.9rem; margin-bottom: 15px;">获取最新的游戏补丁资讯与攻略更新。</p>
+                    <button class="btn" style="width: 100%; font-size: 0.9rem;">订阅简报</button>
+                </div>
+
+            </aside>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 15px;">StarCraft<span>Guide</span></div>
+                    <p style="color: #666; font-size: 0.9rem;">专注于《星际争霸》系列的资料整理与攻略分享，致力于为玩家提供最全面的游戏辅助信息。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">游戏简介</a></li>
+                        <li><a href="#">下载重制版</a></li>
+                        <li><a href="#">官方论坛</a></li>
+                        <li><a href="#">Wiki百科</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>秘籍分类</h4>
+                    <ul>
+                        <li><a href="#">资源类</a></li>
+                        <li><a href="#">战斗类</a></li>
+                        <li><a href="#">科技类</a></li>
+                        <li><a href="#">地图类</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 StarCraft Guide. 本站为非官方粉丝站点，所有游戏版权归暴雪娱乐所有。</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast">代码已复制到剪贴板！</div>
+
+    <script>
+        function copyCode() {
+            const input = document.getElementById('codeInput');
+            const code = input.value.trim();
+            
+            if (code) {
+                navigator.clipboard.writeText(code).then(() => {
+                    showToast();
+                }).catch(err => {
+                    // Fallback for older browsers
+                    input.select();
+                    document.execCommand('copy');
+                    showToast();
+                });
+            } else {
+                alert('请先输入代码！');
+            }
+        }
+
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // Allow Enter key to trigger copy
+        document.getElementById('codeInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                copyCode();
+            }
+        });
+    </script>
+</body>
+  </html>
