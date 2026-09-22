@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="一直 - 理性生活与持续成长的实用指南。提供时间管理、目标设定、习惯养成及心态调整的深度建议，帮助您保持专注，持续前行。">
+    <meta name="keywords" content="一直, 时间管理, 习惯养成, 持续成长, 自律, 生活指南">
+    <title>一直 - 理性生活与持续成长指南</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e1e4e8;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* 布局容器 */
+        .container {
+            width: 100%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #4ca1af 100%);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Section Styling */
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .section-header {
+            margin-bottom: 2rem;
+            border-left: 5px solid var(--accent-color);
+            padding-left: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        /* Grid Systems */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            border: 1px solid var(--border-color);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .card-img-placeholder {
+            height: 180px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-size: 0.9rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-img-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(45deg, #f3f4f6 25%, #e5e7eb 25%, #e5e7eb 50%, #f3f4f6 50%, #f3f4f6 75%, #e5e7eb 75%, #e5e7eb 100%);
+            background-size: 20px 20px;
+            opacity: 0.5;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            color: var(--accent-color);
+            background: rgba(52, 152, 219, 0.1);
+            padding: 0.2rem 0.6rem;
+            border-radius: 4px;
+            margin-bottom: 0.8rem;
+            width: fit-content;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .card-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--border-color);
+            padding-top: 1rem;
+            font-size: 0.85rem;
+            color: #999;
+        }
+
+        /* Feature Box */
+        .feature-box {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            background: rgba(52, 152, 219, 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        /* FAQ Section */
+        .faq-item {
+            background: var(--card-bg);
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1.2rem;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .faq-question:hover {
+            background-color: #fcfcfc;
+        }
+
+        .faq-answer {
+            padding: 0 1.2rem 1.2rem;
+            color: var(--text-secondary);
+            display: none;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 1rem;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--accent-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: white;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #95a5a6;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 1rem 0;
+            }
+
+            nav ul {
+                margin-top: 1rem;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">一直<span>.</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#about" class="active">关于我们</a></li>
+                    <li><a href="#philosophy">核心理念</a></li>
+                    <li><a href="#guides">实用指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>保持专注，持续前行</h1>
+                <p>探索如何克服拖延、建立长期习惯，并在人生的道路上“一直”保持向上的动力与节奏。</p>
+            </div>
+        </section>
+
+        <!-- Introduction Section -->
+        <section id="about">
+            <div class="container">
+                <div class="feature-box">
+                    <div class="feature-icon">🚀</div>
+                    <div>
+                        <h2 style="margin-bottom: 0.5rem; color: var(--primary-color);">什么是“一直”？</h2>
+                        <p style="color: var(--text-secondary);">“一直”不仅是一个时间概念，更是一种生活态度。它代表着持续、坚持与连贯。在快节奏的现代生活中，我们往往容易三分钟热度，而“一直”的核心在于建立稳定的反馈机制，让行动成为习惯，让坚持成为本能。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Core Philosophy -->
+        <section id="philosophy">
+            <div class="container">
+                <div class="section-header">
+                    <h2>核心理念</h2>
+                    <p>我们如何帮助您实现长期的自我提升</p>
+                </div>
+                <div class="grid-3">
+                    <article class="card">
+                        <div class="card-img-placeholder" style="height: 140px;"></div>
+                        <div class="card-body">
+                            <span class="card-tag">思维模式</span>
+                            <h3 class="card-title">长期主义思维</h3>
+                            <p class="card-excerpt">关注未来的结果而非眼前的得失。学会延迟满足，用长远的眼光看待每一次微小的努力。</p>
+                            <div class="card-footer">
+                                <span>阅读时间: 3分钟</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-img-placeholder" style="height: 140px;"></div>
+                        <div class="card-body">
+                            <span class="card-tag">习惯养成</span>
+                            <h3 class="card-title">微小行动法则</h3>
+                            <p class="card-excerpt">不要试图一次性改变所有。从小处着手，通过微小的、不可抗拒的行动开始积累势能。</p>
+                            <div class="card-footer">
+                                <span>阅读时间: 4分钟</span>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-img-placeholder" style="height: 140px;"></div>
+                        <div class="card-body">
+                            <span class="card-tag">时间管理</span>
+                            <h3 class="card-title">深度工作流</h3>
+                            <p class="card-excerpt">在碎片化的时代，如何保持深度思考的能力。通过时间分块，保护您的专注力不被干扰。</p>
+                            <div class="card-footer">
+                                <span>阅读时间: 5分钟</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Practical Guides -->
+        <section id="guides" style="background-color: #fff;">
+            <div class="container">
+                <div class="section-header">
+                    <h2>实用指南</h2>
+                    <p>从理论到实践的落地方案</p>
+                </div>
+                <div class="grid-2">
+                    <article class="card">
+                        <div class="card-img-placeholder" style="height: 220px;"></div>
+                        <div class="card-body">
+                            <span class="card-tag">进阶</span>
+                            <h3 class="card-title">如何建立“一直”的自律系统</h3>
+                            <p class="card-excerpt">自律不是靠意志力死撑，而是靠系统。本文将介绍如何通过环境设计、奖励机制和复盘流程，构建一个自动运转的自律系统，让您不再需要消耗意志力也能保持高效。</p>
+                            <a href="#" style="color: var(--accent-color); font-weight: 600; margin-top: 1rem; display: inline-block;">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="card">
+                        <div class="card-img-placeholder" style="height: 220px;"></div>
+                        <div class="card-body">
+                            <span class="card-tag">基础</span>
+                            <h3 class="card-title">克服“间歇性踌躇满志”的陷阱</h3>
+                            <p class="card-excerpt">很多人都有这样的经历：周一雄心勃勃，周五一事无成。了解这种心理机制的成因，并掌握“微习惯”策略，是打破这种循环的第一步。</p>
+                            <a href="#" style="color: var(--accent-color); font-weight: 600; margin-top: 1rem; display: inline-block;">查看详情 &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题</h2>
+                    <p>关于坚持与成长的解答</p>
+                </div>
+                <div style="max-width: 800px; margin: 0 auto;">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>如果遇到瓶颈期，无法“一直”坚持下去怎么办？</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            瓶颈期是成长过程中非常正常的信号。它通常意味着旧的方法已经无法带来新的进步。此时建议暂停“硬撑”，转而回顾初心，或者尝试改变方法，甚至暂时休息以恢复精力。坚持不等于机械重复，懂得调整节奏同样重要。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>如何区分“一直坚持”和“盲目固执”？</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            “一直坚持”是基于对目标的清晰认知和对方法的有效评估，当方向错误时会及时修正；“盲目固执”则是不管结果如何，只是一味地蛮干。关键在于建立反馈机制，定期复盘，确保您的努力是在正确的轨道上。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <span>对于初学者，从什么开始“一直”做比较好？</span>
+                            <span>+</span>
+                        </div>
+                        <div class="faq-answer">
+                            建议从“每天5分钟”开始。选择一件极小的事情，比如每天阅读一页书、每天做一个深蹲或每天写50个字。这个门槛低到不可能失败，但高到足以让你养成习惯。一旦习惯形成，再逐步增加难度。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>一直.</h3>
+                    <p style="color: #bdc3c7; font-size: 0.9rem; line-height: 1.8;">
+                        致力于为追求成长的人提供最实用的方法论。让我们一起，把想法变成现实，把现实变成习惯。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="#">关于我们</a></li>
+                        <li><a href="#">服务条款</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">联系合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>相关资源</h3>
+                    <ul>
+                        <li><a href="#">时间管理工具</a></li>
+                        <li><a href="#">习惯打卡表</a></li>
+                        <li><a href="#">阅读书单</a></li>
+                        <li><a href="#">冥想指南</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 一直. All rights reserved. 此页面为演示设计。
+            </div>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <script>
+        // FAQ Interaction
+        document.querySelectorAll('.faq-question').forEach(item => {
+            item.addEventListener('click', event => {
+                const parent = item.parentElement;
+                parent.classList.toggle('active');
+                
+                // Toggle icon
+                const span = item.querySelector('span:last-child');
+                if (parent.classList.contains('active')) {
+                    span.textContent = '-';
+                } else {
+                    span.textContent = '+';
+                }
+            });
+        });
+
+        // Smooth Scroll for Navigation
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    window.scrollTo({
+                        top: targetSection.offsetTop - 80, // Offset for sticky header
+                        behavior: 'smooth'
+                    });
+                    
+                    // Update active state
+                    document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
+                    this.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
