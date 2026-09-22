@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lalpina 是一个专注于现代生活方式与美学设计的数字空间。在这里，探索极简主义家居、可持续时尚、创意设计灵感以及生活方式趋势。提供专业的设计指南、精选商品推荐与深度内容分享。">
+    <meta name="keywords" content="Lalpina, 极简设计, 生活方式, 家居美学, 创意灵感, 可持续时尚">
+    <title>Lalpina - 现代生活方式与美学设计指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #d35400;
+            --bg-color: #f9f9f9;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* 布局容器 */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        /* 头部导航 */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-actions button {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+
+        .nav-actions button:hover {
+            background-color: var(--accent-color);
+        }
+
+        /* Hero 区域 */
+        .hero {
+            position: relative;
+            height: 500px;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('https://picsum.photos/seed/lalpina_hero/1600/900.jpg');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            margin-bottom: 3rem;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 800;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #e67e22;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 1rem;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* 分类导航 */
+        .categories {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .category-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 150px;
+            cursor: pointer;
+        }
+
+        .category-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--card-bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: var(--shadow);
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .category-item:hover .category-icon {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .category-name {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        /* 专题推荐 */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-color);
+        }
+
+        .section-more {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .featured-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            height: 240px;
+            width: 100%;
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--accent-color);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            margin-bottom: 0.75rem;
+            color: var(--primary-color);
+        }
+
+        .card-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #999;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 1rem;
+        }
+
+        /* 双列布局内容区 */
+        .content-layout {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+
+        /* 列表样式 */
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .article-item {
+            display: flex;
+            gap: 1.5rem;
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .article-thumb {
+            width: 200px;
+            height: 140px;
+            border-radius: 4px;
+            flex-shrink: 0;
+        }
+
+        .article-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+
+        .article-info p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        /* 侧边栏 */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background-color: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #eee;
+        }
+
+        .tag-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background-color: #f0f0f0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* 灵感画廊 */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.5rem;
+            margin-bottom: 4rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay span {
+            color: white;
+            font-weight: 600;
+            border: 1px solid white;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+        }
+
+        /* 问答/常见问题 */
+        .faq-section {
+            background-color: white;
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid #eee;
+            padding: 1.5rem 0;
+        }
+
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .faq-answer {
+            color: var(--text-secondary);
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 4rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1.5rem;
+            font-size: 0.85rem;
+            color: #bdc3c7;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 900px) {
+            .content-layout {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .article-item {
+                flex-direction: column;
+            }
+            .article-thumb {
+                width: 100%;
+                height: 200px;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">Lalpina<span>.</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">家居设计</a></li>
+                    <li><a href="#">时尚穿搭</a></li>
+                    <li><a href="#">艺术灵感</a></li>
+                    <li><a href="#">生活方式</a></li>
+                </ul>
+            </nav>
+            <div class="nav-actions">
+                <button>订阅更新</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1>重塑生活的美学边界</h1>
+                <p>在 Lalpina，我们探索极简主义与功能性的完美平衡，为您呈现触手可及的现代生活灵感。</p>
+                <div>
+                    <a href="#" class="btn btn-primary">开始探索</a>
+                    <a href="#" class="btn btn-outline">阅读指南</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- 分类导航 -->
+        <section class="container">
+            <div class="categories">
+                <div class="category-item">
+                    <div class="category-icon">🏠</div>
+                    <span class="category-name">家居空间</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">🧥</div>
+                    <span class="category-name">极简衣橱</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">☕</div>
+                    <span class="category-name">慢生活</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">🎨</div>
+                    <span class="category-name">色彩搭配</span>
+                </div>
+                <div class="category-item">
+                    <div class="category-icon">🌱</div>
+                    <span class="category-name">可持续</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- 精选专题 -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">本周精选专题</h2>
+                <a href="#" class="section-more">查看全部 &rarr;</a>
+            </div>
+            <div class="featured-grid">
+                <article class="card">
+                    <img src="https://picsum.photos/seed/lalpina_arch/600/400.jpg" alt="极简室内设计" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">家居设计</span>
+                        <h3 class="card-title">小户型如何实现极简美学？</h3>
+                        <p class="card-excerpt">通过巧妙的收纳布局与色彩运用，即使是有限的空间也能焕发出通透感与高级感。本文分享三个实用案例。</p>
+                        <div class="card-footer">
+                            <span>2023-10-24</span>
+                            <span>阅读 1.2k</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/lalpina_fashion/600/400.jpg" alt="可持续时尚" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">可持续时尚</span>
+                        <h3 class="card-title">建立你的胶囊衣橱清单</h3>
+                        <p class="card-excerpt">告别快时尚的浪费，学习如何挑选高品质、百搭的单品，打造一个既环保又时尚的衣橱系统。</p>
+                        <div class="card-footer">
+                            <span>2023-10-22</span>
+                            <span>阅读 980</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card">
+                    <img src="https://picsum.photos/seed/lalpina_coffee/600/400.jpg" alt="居家办公" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">工作空间</span>
+                        <h3 class="card-title">打造高效且舒适的居家办公区</h3>
+                        <p class="card-excerpt">人体工学椅的选择、灯光的色温控制以及桌面整理技巧，助您在Lalpina风格的家中保持最佳工作状态。</p>
+                        <div class="card-footer">
+                            <span>2023-10-20</span>
+                            <span>阅读 1.5k</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 内容布局：文章列表与侧边栏 -->
+        <section class="container">
+            <div class="content-layout">
+                <!-- 文章列表 -->
+                <div class="main-content">
+                    <div class="section-header">
+                        <h2 class="section-title">最新趋势</h2>
+                    </div>
+                    <div class="article-list">
+                        <article class="article-item">
+                            <img src="https://picsum.photos/seed/lalpina_green/400/300.jpg" alt="绿色植物装饰" class="article-thumb">
+                            <div class="article-info">
+                                <span class="card-tag">室内植物</span>
+                                <h3>让自然走进室内：植物装饰指南</h3>
+                                <p>探讨不同光照条件下的植物选择，以及如何利用植物提升室内空气质量和视觉层次。</p>
+                                <a href="#" style="color: var(--accent-color); font-size: 0.9rem; font-weight: 600;">阅读全文 &rarr;</a>
+                            </div>
+                        </article>
+                        <article class="article-item">
+                            <img src="https://picsum.photos/seed/lalpina_art/400/300.jpg" alt="极简艺术" class="article-thumb">
+                            <div class="article-info">
+                                <span class="card-tag">艺术灵感</span>
+                                <h3>低饱和度色彩在现代艺术中的运用</h3>
+                                <p>分析莫兰迪色系如何影响当代平面设计与室内装饰，提供配色灵感与实用建议。</p>
+                                <a href="#" style="color: var(--accent-color); font-size: 0.9rem; font-weight: 600;">阅读全文 &rarr;</a>
+                            </div>
+                        </article>
+                        <article class="article-item">
+                            <img src="https://picsum.photos/seed/lalpina_kitchen/400/300.jpg" alt="极简厨房" class="article-thumb">
+                            <div class="article-info">
+                                <span class="card-tag">厨房美学</span>
+                                <h3>开放式厨房的收纳挑战与解决方案</h3>
+                                <p>针对开放式厨房油烟与杂乱问题，提出隐形收纳与动线优化的具体方案。</p>
+                                <a href="#" style="color: var(--accent-color); font-size: 0.9rem; font-weight: 600;">阅读全文 &rarr;</a>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- 侧边栏 -->
+                <aside>
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">热门标签</h4>
+                        <div class="tag-cloud">
+                            <a href="#" class="tag">#北欧风</a>
+                            <a href="#" class="tag">#断舍离</a>
+                            <a href="#" class="tag">#复古</a>
+                            <a href="#" class="tag">#原木</a>
+                            <a href="#" class="tag">#现代简约</a>
+                            <a href="#" class="tag">#DIY</a>
+                            <a href="#" class="tag">#灯光设计</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h4 class="widget-title">设计精选</h4>
+                        <ul style="font-size: 0.9rem; color: var(--text-secondary);">
+                            <li style="margin-bottom: 0.8rem; padding-bottom: 0.8rem; border-bottom: 1px solid #f9f9f9;">
+                                <a href="#" style="display: block; font-weight: 600; color: var(--primary-color);">2023年色彩流行趋势预测</a>
+                            </li>
+                            <li style="margin-bottom: 0.8rem; padding-bottom: 0.8rem; border-bottom: 1px solid #f9f9f9;">
+                                <a href="#" style="display: block; color: var(--text-secondary);">如何挑选第一把人体工学椅</a>
+                            </li>
+                            <li style="margin-bottom: 0.8rem;">
+                                <a href="#" style="display: block; color: var(--text-secondary);">木质家具保养全攻略</a>
+                            </li>
+                        </ul>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <!-- 灵感画廊 -->
+        <section class="container">
+            <div class="section-header">
+                <h2 class="section-title">灵感图库</h2>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/g1/400/400.jpg" alt="Gallery 1">
+                    <div class="gallery-overlay"><span>客厅</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/g2/400/400.jpg" alt="Gallery 2">
+                    <div class="gallery-overlay"><span>书房</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/g3/400/400.jpg" alt="Gallery 3">
+                    <div class="gallery-overlay"><span>浴室</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/g4/400/400.jpg" alt="Gallery 4">
+                    <div class="gallery-overlay"><span>卧室</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/g5/400/400.jpg" alt="Gallery 5">
+                    <div class="gallery-overlay"><span>餐具</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/g6/400/400.jpg" alt="Gallery 6">
+                    <div class="gallery-overlay"><span>绿植</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/g7/400/400.jpg" alt="Gallery 7">
+                    <div class="gallery-overlay"><span>摆件</span></div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://picsum.photos/seed/g8/400/400.jpg" alt="Gallery 8">
+                    <div class="gallery-overlay"><span>户外</span></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section">
+            <div class="container faq-container">
+                <div class="section-header">
+                    <h2 class="section-title">常见问题</h2>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Lalpina 提供哪些类型的设计内容？</div>
+                    <div class="faq-answer">我们主要关注现代家居设计、可持续生活方式、极简主义美学以及实用的生活技巧。内容涵盖文字指南、图文案例和视频教程。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">如何订阅 Lalpina 的更新？</div>
+                    <div class="faq-answer">您可以通过页面右上角的“订阅更新”按钮，输入您的电子邮箱，我们将定期发送最新的设计灵感与文章。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">文章中的图片可以用于商业用途吗？</div>
+                    <div class="faq-answer">大部分图片来自 Unsplash 等免费图库，具体请查看每篇文章的版权声明。商业使用请务必联系图片原作者获取授权。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>Lalpina.</h4>
+                    <p style="font-size: 0.9rem; color: #bdc3c7; line-height: 1.8;">
+                        致力于为现代都市人提供高品质的生活方式参考。我们相信，设计不仅是装饰，更是对生活态度的表达。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>探索</h4>
+                    <ul>
+                        <li><a href="#">家居设计</a></li>
+                        <li><a href="#">时尚穿搭</a></li>
+                        <li><a href="#">艺术画廊</a></li>
+                        <li><a href="#">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>资源</h4>
+                    <ul>
+                        <li><a href="#">设计工具</a></li>
+                        <li><a href="#">色彩查询</a></li>
+                        <li><a href="#">品牌目录</a></li>
+                        <li><a href="#">联系合作</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">小红书</a></li>
+                        <li><a href="#">Instagram</a></li>
+                        <li><a href="#">Pinterest</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2023 Lalpina. All rights reserved. 本站为设计演示页面。
+            </div>
+        </div>
+    </footer>
+
+</body>
+                                  </html>
